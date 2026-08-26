@@ -1,0 +1,14 @@
+# Files that belong in the repository but not in the distributed plugin.
+#
+# The plugin checker rejects hidden files outright, and flags a test harness for
+# the WordPress coding standards it is deliberately not written to (it stubs
+# WordPress rather than running inside it). None of it is needed to run the
+# plugin, so none of it ships.
+.git
+.gitignore
+.distignore
+bin
+dist
+docs
+tests
+README.md

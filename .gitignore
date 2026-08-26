@@ -10,3 +10,6 @@ vendor/
 
 # Distribution archives
 *.zip
+
+# Build output
+dist/

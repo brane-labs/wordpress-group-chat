@@ -17,14 +17,14 @@ delete_option( 'wpgc_settings' );
 
 // Multisite: the option lives per site, so each one has to be cleared.
 if ( is_multisite() ) {
-	$site_ids = get_sites(
+	$wpgc_site_ids = get_sites(
 		array(
 			'fields' => 'ids',
 			'number' => 0,
 		)
 	);
-	foreach ( $site_ids as $site_id ) {
-		switch_to_blog( $site_id );
+	foreach ( $wpgc_site_ids as $wpgc_site_id ) {
+		switch_to_blog( $wpgc_site_id );
 		delete_option( 'wpgc_settings' );
 		restore_current_blog();
 	}

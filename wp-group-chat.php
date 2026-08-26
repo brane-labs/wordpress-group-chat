@@ -11,7 +11,6 @@
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Text Domain:       wp-group-chat
- * Domain Path:       /languages
  *
  * @package WPGroupChat
  */
@@ -66,14 +65,6 @@ function wpgc_init() {
 	}
 }
 add_action( 'plugins_loaded', 'wpgc_init' );
-
-/**
- * Load translations.
- */
-function wpgc_load_textdomain() {
-	load_plugin_textdomain( 'wp-group-chat', false, dirname( plugin_basename( WPGC_FILE ) ) . '/languages' );
-}
-add_action( 'init', 'wpgc_load_textdomain' );
 
 /**
  * A direct link to the settings screen from the plugins list.
