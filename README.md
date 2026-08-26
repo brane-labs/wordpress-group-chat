@@ -19,22 +19,27 @@ it. A visitor who never presses it downloads nothing.
 - PHP 7.4 or later
 - A Crowd you administer, from the Brane app
 
-## Installing
+## Setting up
 
-Copy the plugin folder into `wp-content/plugins/`, activate it, then open
-**Settings → WP Group Chat**.
+1. Install the Brane app on your phone, from [get.brane.app](https://get.brane.app).
+2. Sign in, then create a Crowd. That Crowd is the group chat your visitors will
+   see.
+3. Run it from the app: photo, description, who has joined, removing anyone you
+   need to. Everything about the chat is managed there, not in WordPress.
+4. Copy your Crowd ID into **Settings → WP Group Chat** and save.
 
-Nothing appears on the site until **Show the chat button on this site** is
-ticked, so the settings can be filled in without a half-configured chat going
-live in the meantime.
+### Your Crowd ID
 
-## Finding your Crowd ID
+The last part of your Crowd's link. Share the Crowd from the app and you get a
+link like `brane.im/c/northside-runners`, where the ID is `northside-runners`.
 
-In the Brane app, open your Crowd, then the menu, then **Embed on Website**. The
-ID is the `data-crowd` value in the line it shows. The same menu can email the
-full instructions to the address on your own account.
+Pasting the whole link into the field works too: the ID is taken from the end of
+it.
 
-You need to be an admin of the Crowd to see the option.
+The app can also email you the full instructions. Open your Crowd, then the menu,
+then **Embed on Website**. It only ever sends to the address on your own account,
+and you need to be an admin of the Crowd.
+
 
 ## Settings
 

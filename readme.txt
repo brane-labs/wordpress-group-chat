@@ -42,13 +42,20 @@ filter.
 
 == Installation ==
 
-1. Install and activate the plugin.
-2. Go to Settings > WP Group Chat.
-3. Enter your Crowd ID and tick "Show the chat button on this site".
+1. Install the Brane app on your phone, from get.brane.app
+2. Sign in, then create a Crowd. That Crowd is the group chat your visitors will
+   see.
+3. Run it from the app: photo, description, who has joined, removing anyone you
+   need to. Everything about the chat is managed there, not in WordPress.
+4. Install and activate this plugin, then go to Settings > WP Group Chat.
+5. Enter your Crowd ID, tick "Show the chat button on this site", and save.
 
-To find your Crowd ID, open your Crowd in the Brane app, then the menu, then
-"Embed on Website". You need to be an admin of the Crowd. The settings screen has
-the same instructions behind "Where do I find this?".
+Your Crowd ID is the last part of your Crowd's link. Share the Crowd from the app
+and you get a link like brane.im/c/northside-runners, where the ID is
+northside-runners. Pasting the whole link into the field works too.
+
+The app can also email you the full instructions: open your Crowd, then the menu,
+then Embed on Website.
 
 == Frequently Asked Questions ==
 

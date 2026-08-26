@@ -21,6 +21,18 @@ class WPGC_Admin {
 
 	const PAGE_SLUG = 'wp-group-chat';
 
+	/** The only markup permitted in a translated string here: one link. */
+	const LINK_TAGS = array(
+		'a' => array(
+			'href'   => array(),
+			'target' => array(),
+			'rel'    => array(),
+		),
+	);
+
+	/** And inline code, for showing the shape of a link. */
+	const CODE_TAGS = array( 'code' => array() );
+
 	/**
 	 * Hook up the menu entry and its assets.
 	 */
@@ -108,10 +120,10 @@ class WPGC_Admin {
 								spellcheck="false"
 							/>
 							<button type="button" class="button-link wpgc-help-open" aria-expanded="false" aria-controls="wpgc-help">
-								<?php esc_html_e( 'Where do I find this?', 'wp-group-chat' ); ?>
+								<?php esc_html_e( 'How do I get one?', 'wp-group-chat' ); ?>
 							</button>
 							<p class="description">
-								<?php esc_html_e( 'Required. Letters, numbers and dashes, as it appears on your Crowd.', 'wp-group-chat' ); ?>
+								<?php esc_html_e( 'Required. The last part of your Crowd\'s link, for example northside-runners. No Crowd yet? Open the help above.', 'wp-group-chat' ); ?>
 							</p>
 							<?php self::render_help(); ?>
 						</td>
@@ -262,18 +274,48 @@ class WPGC_Admin {
 	private static function render_help() {
 		?>
 		<div id="wpgc-help" class="wpgc-help" hidden>
-			<p><strong><?php esc_html_e( 'Two ways to find your Crowd ID', 'wp-group-chat' ); ?></strong></p>
-			<p><strong><?php esc_html_e( 'In the Brane app', 'wp-group-chat' ); ?></strong><br />
-				<?php esc_html_e( 'Open your Crowd, tap the menu, then choose “Embed on Website”. The ID is the data-crowd value in the line it shows you.', 'wp-group-chat' ); ?>
-			</p>
-			<p><strong><?php esc_html_e( 'By email', 'wp-group-chat' ); ?></strong><br />
-				<?php esc_html_e( 'From the same menu you can have the full instructions emailed to you. It only ever goes to the email address on your own account.', 'wp-group-chat' ); ?>
+			<p><strong><?php esc_html_e( 'Starting from scratch', 'wp-group-chat' ); ?></strong></p>
+
+			<ol class="wpgc-help-steps">
+				<li>
+					<?php
+					// wp_kses over the whole sentence rather than concatenating
+					// escaped fragments: it keeps the string translatable in one
+					// piece, allows only the anchor, and leaves the URL to
+					// esc_url. Splitting it would hand translators half a
+					// sentence.
+					printf(
+						wp_kses(
+							/* translators: %s: URL of the app download page. */
+							__( 'Install the Brane app on your phone, from <a href="%s">get.brane.app</a>.', 'wp-group-chat' ),
+							self::LINK_TAGS
+						),
+						esc_url( 'https://get.brane.app' )
+					);
+					?>
+				</li>
+				<li><?php esc_html_e( 'Sign in, then create a Crowd. That Crowd is the group chat your visitors will see.', 'wp-group-chat' ); ?></li>
+				<li><?php esc_html_e( 'Run it from the app: set its photo and description, see who has joined, and remove anyone you need to. Everything about the chat is managed there, not here.', 'wp-group-chat' ); ?></li>
+				<li><?php esc_html_e( 'Copy your Crowd ID into the field above, and save.', 'wp-group-chat' ); ?></li>
+			</ol>
+
+			<p><strong><?php esc_html_e( 'Your Crowd ID', 'wp-group-chat' ); ?></strong></p>
+			<p>
+				<?php
+				echo wp_kses(
+					__( 'It is the last part of your Crowd\'s link. Share the Crowd from the app and you get a link like <code>brane.im/c/northside-runners</code>, where the ID is <code>northside-runners</code>.', 'wp-group-chat' ),
+					self::CODE_TAGS
+				);
+				?>
 			</p>
 			<p class="wpgc-help-note">
-				<?php esc_html_e( 'You must be an admin of the Crowd to see this option.', 'wp-group-chat' ); ?>
+				<?php esc_html_e( 'Paste the whole link if that is easier. The ID is taken from the end of it for you.', 'wp-group-chat' ); ?>
 			</p>
 			<p>
-				<a href="<?php echo esc_url( 'https://brane.app/embed/' ); ?>" target="_blank" rel="noopener noreferrer">
+				<?php esc_html_e( 'The app can also email you the full setup instructions: open your Crowd, then the menu, then Embed on Website. It only ever sends to the address on your own account, and you need to be an admin of the Crowd.', 'wp-group-chat' ); ?>
+			</p>
+			<p>
+				<a href="<?php echo esc_url( 'https://brane.app/wordpress-group-chat' ); ?>" target="_blank" rel="noopener noreferrer">
 					<?php esc_html_e( 'Full instructions', 'wp-group-chat' ); ?>
 				</a>
 			</p>

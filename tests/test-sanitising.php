@@ -68,6 +68,11 @@ check( 'trims and lowercases', WPGC_Settings::sanitize_crowd( '  Makaveli  ' ), 
 check( 'keeps underscores', WPGC_Settings::sanitize_crowd( 'my_crowd_2' ), 'my_crowd_2' );
 // A pasted link is the likeliest wrong input, so it is recovered rather than rejected.
 check( 'recovers from a pasted url', WPGC_Settings::sanitize_crowd( 'https://embed.brane.chat/c/makaveli' ), 'makaveli' );
+// The help panel tells people they can paste the whole Crowd link, so the
+// shape that link actually has is worth asserting rather than assuming.
+check( 'recovers from a pasted Crowd link', WPGC_Settings::sanitize_crowd( 'https://brane.im/c/makaveli' ), 'makaveli' );
+check( 'recovers from a Crowd link with a trailing slash', WPGC_Settings::sanitize_crowd( 'https://brane.im/c/makaveli/' ), 'makaveli' );
+check( 'recovers from a Crowd link without a scheme', WPGC_Settings::sanitize_crowd( 'brane.im/c/makaveli' ), 'makaveli' );
 check( 'recovers with a trailing slash', WPGC_Settings::sanitize_crowd( 'https://embed.brane.chat/c/makaveli/' ), 'makaveli' );
 // The important ones: nothing that could change the meaning of a URL or a tag
 // survives, because this value ends up in both.
