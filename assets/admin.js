@@ -9,8 +9,8 @@
 	'use strict';
 
 	function wireHelpPanel() {
-		var toggle = document.querySelector( '.brane-cc-help-open' );
-		var panel = document.getElementById( 'brane-cc-help' );
+		var toggle = document.querySelector( '.wpgc-help-open' );
+		var panel = document.getElementById( 'wpgc-help' );
 		if ( ! toggle || ! panel ) {
 			return;
 		}
@@ -32,10 +32,10 @@
 	 * server accepts.
 	 */
 	function wireColourSwatches() {
-		var fields = document.querySelectorAll( '.brane-cc-colour' );
+		var fields = document.querySelectorAll( '.wpgc-colour' );
 		Array.prototype.forEach.call( fields, function ( field ) {
 			var swatch = document.createElement( 'span' );
-			swatch.className = 'brane-cc-swatch';
+			swatch.className = 'wpgc-swatch';
 			field.parentNode.insertBefore( swatch, field.nextSibling );
 
 			var paint = function () {

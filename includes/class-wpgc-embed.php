@@ -2,7 +2,7 @@
 /**
  * Front-end output.
  *
- * @package BraneCrowdChat
+ * @package WordPressGroupChat
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,15 +21,15 @@ if ( ! defined( 'ABSPATH' ) ) {
  * waits; the chat arrives when a visitor presses it. That is worth knowing
  * before judging the plugin on page weight.
  */
-class Brane_Crowd_Chat_Embed {
+class WPGC_Embed {
 
-	const HANDLE = 'brane-crowd-chat';
+	const HANDLE = 'wordpress-group-chat';
 
 	/**
 	 * Hook up, but only when there is something to show.
 	 */
 	public static function register() {
-		if ( ! Brane_Crowd_Chat_Settings::is_active() ) {
+		if ( ! WPGC_Settings::is_active() ) {
 			return;
 		}
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ) );
@@ -51,13 +51,13 @@ class Brane_Crowd_Chat_Embed {
 		 *
 		 * @param bool $show Whether to output the loader.
 		 */
-		if ( ! apply_filters( 'brane_crowd_chat_show', true ) ) {
+		if ( ! apply_filters( 'wpgc_show', true ) ) {
 			return;
 		}
 
 		wp_enqueue_script(
 			self::HANDLE,
-			BRANE_CROWD_CHAT_EMBED_ORIGIN . '/embed.js',
+			WPGC_EMBED_ORIGIN . '/embed.js',
 			array(),
 			null, // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			true
@@ -101,7 +101,7 @@ class Brane_Crowd_Chat_Embed {
 	 * @return array<string,string>
 	 */
 	public static function attributes() {
-		$settings = Brane_Crowd_Chat_Settings::get();
+		$settings = WPGC_Settings::get();
 
 		$attributes = array( 'data-crowd' => $settings['crowd'] );
 
@@ -128,7 +128,7 @@ class Brane_Crowd_Chat_Embed {
 	 * @return string
 	 */
 	public static function preview_snippet() {
-		$parts = array( sprintf( 'src="%s/embed.js"', BRANE_CROWD_CHAT_EMBED_ORIGIN ) );
+		$parts = array( sprintf( 'src="%s/embed.js"', WPGC_EMBED_ORIGIN ) );
 		foreach ( self::attributes() as $name => $value ) {
 			$parts[] = sprintf( '%s="%s"', $name, $value );
 		}

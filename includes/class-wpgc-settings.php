@@ -2,7 +2,7 @@
 /**
  * Settings storage, defaults and sanitising.
  *
- * @package BraneCrowdChat
+ * @package WordPressGroupChat
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * value that never enters the database cannot be output wrongly by some future
  * template that forgets to escape.
  */
-class Brane_Crowd_Chat_Settings {
+class WPGC_Settings {
 
 	/** Themes the chat actually honours. */
 	const THEMES = array( 'light', 'dark' );
@@ -39,8 +39,8 @@ class Brane_Crowd_Chat_Settings {
 	 */
 	public static function register() {
 		register_setting(
-			'brane_crowd_chat',
-			BRANE_CROWD_CHAT_OPTION,
+			'wpgc',
+			WPGC_OPTION,
 			array(
 				'type'              => 'array',
 				'sanitize_callback' => array( __CLASS__, 'sanitize' ),
@@ -76,7 +76,7 @@ class Brane_Crowd_Chat_Settings {
 	 * version cannot produce an undefined-index notice after an upgrade.
 	 */
 	public static function get() {
-		$stored = get_option( BRANE_CROWD_CHAT_OPTION, array() );
+		$stored = get_option( WPGC_OPTION, array() );
 		if ( ! is_array( $stored ) ) {
 			$stored = array();
 		}

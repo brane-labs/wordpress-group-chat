@@ -1,4 +1,4 @@
-=== Brane Crowd Chat ===
+=== WordPress Group Chat ===
 Contributors: branelabs
 Tags: chat, community, group chat, live chat, messaging
 Requires at least: 5.8
@@ -8,19 +8,22 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
-Add your Brane Crowd to your site as a chat button. Fill in a form, save, done.
+Add a group chat to your site so visitors talk to each other and keep coming back. Install, set up, save.
 
 == Description ==
 
-Put your community's group chat on your website. Enter your Crowd ID, choose a
-theme and colours, and a chat button appears in the corner of every page.
-Visitors sign in with a six digit email code without ever leaving your site.
+Give your visitors somewhere to talk to each other. A chat button appears in the
+corner of every page, and anyone can join in without leaving your site: they sign
+in with a six digit code sent to their email.
+
+A site people talk on is a site people come back to. Install the plugin, fill in
+the form, save.
 
 **The chat is not downloaded on page load.** The plugin adds a small loader that
 draws the button and waits. The chat itself arrives only when a visitor presses
 it, so a visitor who never presses it downloads nothing.
 
-= What you can set =
+= Set up in one screen =
 
 * Crowd ID
 * Light or dark theme, which visitors can then switch for themselves
@@ -34,13 +37,13 @@ so you can fill everything in first.
 
 = Keeping the chat off certain pages =
 
-Site-wide in this version. To exclude pages, use the `brane_crowd_chat_show`
+Site-wide in this version. To exclude pages, use the `wpgc_show`
 filter.
 
 == Installation ==
 
 1. Install and activate the plugin.
-2. Go to Settings > Brane Crowd Chat.
+2. Go to Settings > WordPress Group Chat.
 3. Enter your Crowd ID and tick "Show the chat button on this site".
 
 To find your Crowd ID, open your Crowd in the Brane app, then the menu, then
@@ -54,7 +57,7 @@ the same instructions behind "Where do I find this?".
 The chat is not loaded until a visitor presses the button. Until then the plugin
 has added a button and a stylesheet.
 
-= Do visitors need a Brane account? =
+= Do visitors need an account? =
 
 They sign in with a six digit code sent to their email, in the chat panel,
 without leaving your page.
@@ -64,7 +67,7 @@ without leaving your page.
 Yes. The colours tint the theme rather than replacing it, so text and surfaces
 stay legible whatever you choose.
 
-= Can I remove the Brane branding? =
+= Can I remove the branding from the chat? =
 
 Not in this version. It is planned, for Crowds on a plan that includes it.
 

@@ -65,7 +65,7 @@ configure and nothing to keep in sync.
 
 ## Later, unscheduled
 
-- **Per-page control.** 1.0.0 is site-wide, with a `brane_crowd_chat_show`
+- **Per-page control.** 1.0.0 is site-wide, with a `wpgc_show`
   filter for anyone comfortable writing one line of PHP. A visual page/post
   picker is the obvious next step if that filter turns out to be the common
   request rather than the rare one.

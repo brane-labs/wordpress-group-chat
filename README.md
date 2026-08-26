@@ -1,11 +1,13 @@
-# wordpress-group-chat
+# WordPress Group Chat
 Embed a free group chat for all of your visitors to engage in, and grow your community and retention.
 
 ## What it does
 
-Fill in your Crowd ID, pick a theme and colours, save. A chat button appears in
-the corner of every page. Visitors sign in with a six digit email code without
-leaving the site.
+Gives your visitors somewhere to talk to each other. A chat button appears in the
+corner of every page, and anyone can join without leaving the site: they sign in
+with a six digit code sent to their email.
+
+Fill in the form, save. That is the whole setup.
 
 The chat is **not downloaded on page load**. The plugin adds a small loader that
 draws the button and waits; the chat itself arrives only when a visitor presses
@@ -15,12 +17,12 @@ it. A visitor who never presses it downloads nothing.
 
 - WordPress 5.8 or later
 - PHP 7.4 or later
-- A Brane Crowd you administer
+- A Crowd you administer, from the Brane app
 
 ## Installing
 
 Copy the plugin folder into `wp-content/plugins/`, activate it, then open
-**Settings → Brane Crowd Chat**.
+**Settings → WordPress Group Chat**.
 
 Nothing appears on the site until **Show the chat button on this site** is
 ticked, so the settings can be filled in without a half-configured chat going
@@ -55,7 +57,7 @@ text stay legible whatever colour is chosen.
 1.0.0 is site-wide. To exclude pages, filter it:
 
 ```php
-add_filter( 'brane_crowd_chat_show', function ( $show ) {
+add_filter( 'wpgc_show', function ( $show ) {
 	if ( is_page( 'checkout' ) ) {
 		return false;
 	}
@@ -65,20 +67,20 @@ add_filter( 'brane_crowd_chat_show', function ( $show ) {
 
 ## For developers
 
-- `brane_crowd_chat_show` — filter whether the loader is output on the current
+- `wpgc_show` — filter whether the loader is output on the current
   request.
-- `BRANE_CROWD_CHAT_EMBED_ORIGIN` — define in `wp-config.php` to point at a
+- `WPGC_EMBED_ORIGIN` — define in `wp-config.php` to point at a
   different deployment. Deliberately not a setting: it is one fixed public
   address, and a text field for it would only ever be a way for a site to load
   something else.
 
-Settings are stored in a single option, `brane_crowd_chat_settings`, sanitised
+Settings are stored in a single option, `wpgc_settings`, sanitised
 through one allowlist on save. Removed on uninstall, kept on deactivate.
 
 ## Roadmap
 
 See [`docs/ROADMAP.md`](docs/ROADMAP.md). The short version: 1.1.0 covers hiding
-the Brane branding for Crowds on a plan that includes it, and that has to be
+the branding in the chat panel for Crowds on a plan that includes it, and that has to be
 decided by the service rather than by a checkbox here.
 
 ## Licence
