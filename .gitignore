@@ -1,0 +1,12 @@
+# Editor and OS noise
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Dependencies and build output, if any are ever added
+node_modules/
+vendor/
+
+# Distribution archives
+*.zip

@@ -1,0 +1,71 @@
+/* Settings screen styles. Scoped to this plugin's wrapper so nothing here can
+   reach the rest of the admin. */
+
+.brane-cc-intro {
+	max-width: 40em;
+}
+
+.brane-cc-help {
+	max-width: 34em;
+	margin: 12px 0 0;
+	padding: 12px 16px;
+	background: #f6f7f7;
+	border-left: 4px solid #2271b1;
+}
+
+.brane-cc-help p {
+	margin: 0 0 10px;
+}
+
+.brane-cc-help p:last-child {
+	margin-bottom: 0;
+}
+
+.brane-cc-help-note {
+	color: #646970;
+}
+
+.brane-cc-status {
+	font-weight: 600;
+}
+
+.brane-cc-status-live::before {
+	content: "";
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin-right: 8px;
+	border-radius: 50%;
+	background: #00a32a;
+}
+
+.brane-cc-status-idle::before {
+	content: "";
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	margin-right: 8px;
+	border-radius: 50%;
+	background: #dba617;
+}
+
+.brane-cc-snippet {
+	max-width: 60em;
+	padding: 12px 16px;
+	overflow-x: auto;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+}
+
+/* A small swatch next to a colour field, so a typo is visible before saving. */
+.brane-cc-swatch {
+	display: inline-block;
+	width: 22px;
+	height: 22px;
+	margin-left: 8px;
+	vertical-align: middle;
+	border: 1px solid #8c8f94;
+	border-radius: 4px;
+	background: transparent;
+}
