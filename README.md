@@ -77,6 +77,39 @@ add_filter( 'wpgc_show', function ( $show ) {
 Settings are stored in a single option, `wpgc_settings`, sanitised
 through one allowlist on save. Removed on uninstall, kept on deactivate.
 
+## Building a release
+
+```bash
+./bin/build-zip.sh
+```
+
+Produces `dist/wp-group-chat.zip`, containing the files in a `wp-group-chat/`
+folder, with dev files excluded per `.distignore`.
+
+⚠️ **Check that ZIP, not a GitHub source download.** WordPress derives a plugin's
+slug from its directory, and the Plugin Check tool derives the expected text
+domain from that slug. A "Download ZIP" gives a folder named after the branch
+(`wordpress-group-chat-main`), so the checker reports a text domain mismatch on
+every translated string and a trademark warning on the "slug". None of that is a
+problem with the code, only with the name of the folder it was checked in.
+
+## The Plugin Check trademark warning
+
+The checker reports one warning that is expected and has been accepted:
+
+> The plugin name includes a restricted term... contains the restricted term
+> "wp" which cannot be used at all in your plugin name.
+
+`TRADEMARK_SLUGS` in the checker holds both `wordpress` and `wp`, and neither
+ends in `-`, which means neither may appear anywhere in a plugin name. Its source
+comments the entry as `'wp', // it's allowed, but shows a warning.` So the name is
+permitted and the warning is permanent.
+
+There is no suffix escape: `FOR_USE_EXCEPTIONS` contains only `woocommerce`, so
+"... for WordPress" is not an allowed pattern here and would be flagged the same
+way. A name containing neither term is the only fully clean option, and that
+trade was made deliberately in favour of the name.
+
 ## Roadmap
 
 See [`docs/ROADMAP.md`](docs/ROADMAP.md). The short version: 1.1.0 covers hiding
