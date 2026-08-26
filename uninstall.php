@@ -5,7 +5,7 @@
  * Runs on delete, not on deactivate: deactivating is often temporary and losing
  * a configuration because somebody toggled the plugin off would be its own bug.
  *
- * @package WordPressGroupChat
+ * @package WPGroupChat
  */
 
 // Only ever reached by WordPress's uninstall routine.

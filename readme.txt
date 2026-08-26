@@ -1,4 +1,4 @@
-=== WordPress Group Chat ===
+=== WP Group Chat ===
 Contributors: branelabs
 Tags: chat, community, group chat, live chat, messaging
 Requires at least: 5.8
@@ -43,7 +43,7 @@ filter.
 == Installation ==
 
 1. Install and activate the plugin.
-2. Go to Settings > WordPress Group Chat.
+2. Go to Settings > WP Group Chat.
 3. Enter your Crowd ID and tick "Show the chat button on this site".
 
 To find your Crowd ID, open your Crowd in the Brane app, then the menu, then

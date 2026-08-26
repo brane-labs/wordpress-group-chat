@@ -1,4 +1,4 @@
-# WordPress Group Chat
+# WP Group Chat
 Embed a free group chat for all of your visitors to engage in, and grow your community and retention.
 
 ## What it does
@@ -22,7 +22,7 @@ it. A visitor who never presses it downloads nothing.
 ## Installing
 
 Copy the plugin folder into `wp-content/plugins/`, activate it, then open
-**Settings → WordPress Group Chat**.
+**Settings → WP Group Chat**.
 
 Nothing appears on the site until **Show the chat button on this site** is
 ticked, so the settings can be filled in without a half-configured chat going

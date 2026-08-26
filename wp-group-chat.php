@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       WordPress Group Chat
+ * Plugin Name:       WP Group Chat
  * Plugin URI:        https://brane.app/wordpress-group-chat
  * Description:       Add a group chat to your site so visitors talk to each other and keep coming back. Install, set up, save.
  * Version:           1.0.0
@@ -10,10 +10,10 @@
  * Author URI:        https://brane.app/wordpress-group-chat
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- * Text Domain:       wordpress-group-chat
+ * Text Domain:       wp-group-chat
  * Domain Path:       /languages
  *
- * @package WordPressGroupChat
+ * @package WPGroupChat
  */
 
 // No direct access. Every file in this plugin repeats this: a web server
@@ -71,7 +71,7 @@ add_action( 'plugins_loaded', 'wpgc_init' );
  * Load translations.
  */
 function wpgc_load_textdomain() {
-	load_plugin_textdomain( 'wordpress-group-chat', false, dirname( plugin_basename( WPGC_FILE ) ) . '/languages' );
+	load_plugin_textdomain( 'wp-group-chat', false, dirname( plugin_basename( WPGC_FILE ) ) . '/languages' );
 }
 add_action( 'init', 'wpgc_load_textdomain' );
 
@@ -81,8 +81,8 @@ add_action( 'init', 'wpgc_load_textdomain' );
 function wpgc_action_links( $links ) {
 	$settings = sprintf(
 		'<a href="%s">%s</a>',
-		esc_url( admin_url( 'options-general.php?page=wordpress-group-chat' ) ),
-		esc_html__( 'Settings', 'wordpress-group-chat' )
+		esc_url( admin_url( 'options-general.php?page=wp-group-chat' ) ),
+		esc_html__( 'Settings', 'wp-group-chat' )
 	);
 	array_unshift( $links, $settings );
 	return $links;

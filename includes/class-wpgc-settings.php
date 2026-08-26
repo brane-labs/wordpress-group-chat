@@ -2,7 +2,7 @@
 /**
  * Settings storage, defaults and sanitising.
  *
- * @package WordPressGroupChat
+ * @package WPGroupChat
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

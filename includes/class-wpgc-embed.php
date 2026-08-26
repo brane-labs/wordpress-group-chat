@@ -2,7 +2,7 @@
 /**
  * Front-end output.
  *
- * @package WordPressGroupChat
+ * @package WPGroupChat
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class WPGC_Embed {
 
-	const HANDLE = 'wordpress-group-chat';
+	const HANDLE = 'wp-group-chat';
 
 	/**
 	 * Hook up, but only when there is something to show.

@@ -7,7 +7,7 @@
  *
  *   php tests/test-sanitising.php
  *
- * @package WordPressGroupChat
+ * @package WPGroupChat
  */
 
 // Enough of WordPress to load the classes under test.
@@ -152,9 +152,9 @@ check( 'empty label omitted', isset( $attributes['data-label'] ), false );
 // host page's decision.
 check( 'no env attribute', isset( $attributes['data-env'] ), false );
 
-$tag     = "<script src='https://embed.brane.chat/embed.js' id='wordpress-group-chat-js'></script>\n";
-$rewrite = WPGC_Embed::add_attributes( $tag, 'wordpress-group-chat' );
-check( 'keeps the existing id', false !== strpos( $rewrite, "id='wordpress-group-chat-js'" ), true );
+$tag     = "<script src='https://embed.brane.chat/embed.js' id='wp-group-chat-js'></script>\n";
+$rewrite = WPGC_Embed::add_attributes( $tag, 'wp-group-chat' );
+check( 'keeps the existing id', false !== strpos( $rewrite, "id='wp-group-chat-js'" ), true );
 check( 'adds the crowd', false !== strpos( $rewrite, 'data-crowd="makaveli"' ), true );
 check( 'adds defer', false !== strpos( $rewrite, 'defer>' ), true );
 check( 'still one tag', substr_count( $rewrite, '<script' ), 1 );
